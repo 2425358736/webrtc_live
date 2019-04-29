@@ -71,7 +71,7 @@
         socket.onmessage = function (event) {
             var json = JSON.parse(event.data);
 
-            //如果是一个ICE的候选，则将其加入到PeerConnection中，否则设定对方的session描述为传递过来的描述
+            //如果是一个ICE的候选，则将其加入到PeerConnection中
             if (json.event === "__offer") {
                 pc.setRemoteDescription(new RTCSessionDescription(json.data.sdp));
                 pc.onicecandidate = function (event) {
