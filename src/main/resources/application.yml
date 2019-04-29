@@ -1,0 +1,17 @@
+spring:
+  application:
+    # 服务名
+    name: webrtc_live
+  #freemarker配置
+  freemarker:
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    template-loader-path: classpath:/templates
+
+server:
+  port: 6533 # 服务端口
