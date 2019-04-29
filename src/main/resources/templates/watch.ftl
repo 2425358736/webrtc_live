@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>GetUserMedia</title>
+    <title>观看页</title>
 </head>
 <body>
 <div id="eee">
@@ -13,19 +13,27 @@
 <button onclick="communication()">建立视频通信</button>
 
 </body>
-
-// name 发送人 receiver 接收人
 <script type="text/javascript">
-    //使用Google的stun服务器
+    /**
+     * socket.send 数据描述
+     * event: 指令类型
+     * data: 数据
+     * name: 发送人
+     * receiver: 接收人
+     *
+     * */
+
+
+            //使用Google的stun服务器
     const iceServer = {
-        "iceServers": [{
-            "url": "stun:stun.l.google.com:19302"
-        }, {
-            "url": "turn:numb.viagenie.ca",
-            "username": "webrtc@live.com",
-            "credential": "muazkh"
-        }]
-    };
+                "iceServers": [{
+                    "url": "stun:stun.l.google.com:19302"
+                }, {
+                    "url": "turn:numb.viagenie.ca",
+                    "username": "webrtc@live.com",
+                    "credential": "muazkh"
+                }]
+            };
     //兼容浏览器的getUserMedia写法
     const getUserMedia = (navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia);
     //兼容浏览器的PeerConnection写法

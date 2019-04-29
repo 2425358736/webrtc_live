@@ -13,20 +13,26 @@
 
 </body>
 
-// name 发送人 receiver 接收人
 <script type="text/javascript">
+    /**
+     * socket.send 数据描述
+     * event: 指令类型
+     * data: 数据
+     * name: 发送人
+     * receiver: 接收人
+     *
+     * */
 
-
-    //使用Google的stun服务器
+            //使用Google的stun服务器
     const iceServer = {
-        "iceServers": [{
-            "url": "stun:stun.l.google.com:19302"
-        }, {
-            "url": "turn:numb.viagenie.ca",
-            "username": "webrtc@live.com",
-            "credential": "muazkh"
-        }]
-    };
+                "iceServers": [{
+                    "url": "stun:stun.l.google.com:19302"
+                }, {
+                    "url": "turn:numb.viagenie.ca",
+                    "username": "webrtc@live.com",
+                    "credential": "muazkh"
+                }]
+            };
     //兼容浏览器的getUserMedia写法
     const getUserMedia = (navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia);
     //兼容浏览器的PeerConnection写法
@@ -42,13 +48,19 @@
      */
     var socket;
 
+    /**
+     * 视频信息
+     * */
     var stream_two;
 
+    /**
+     * 播放视频video组件
+     * */
     const video = document.getElementById('video');
 
 
     /**
-     * 连接的浏览器
+     * 连接的浏览器PeerConnection对象组
      * {
      *  'id':PeerConnection
      * }
@@ -58,15 +70,13 @@
 
     // 建立scoket连接
     function connect() {
+        // 获取主播名称
         const zhubo = document.getElementById('zhubo').value;
 
         /**
          * 信令websocket
          * @type {WebSocket}
          */
-        if (socket) {
-            socket.close()
-        }
         socket = new WebSocket("ws://192.168.31.13:6533/websocket?name=" + zhubo);
 
         //获取本地的媒体流，并绑定到一个video标签上输出，并且发送这个媒体流给其他客户端
@@ -148,6 +158,4 @@
     }
 
 </script>
-
-
 </html>

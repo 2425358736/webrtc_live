@@ -48,7 +48,7 @@ public class WebSocket {
             // 通知主播发送__offer指令
             this.onMessage("{\"name\": \"" + name + "\",\"receiver\": \"" + receiver + "\"}", session);
         } else {
-            // 主播简历连接
+            // 主播建立连接
             name = listMap.get("name").get(0);
             map.put(name,this);
         }
@@ -57,6 +57,7 @@ public class WebSocket {
 
     // 添加map 到 webSocketSet，
     public void addSocket(Map<String,WebSocket> map, String name) {
+        // 删除重复的连接
         for(Map<String,WebSocket> item: webSocketSet){
             for(String key : item.keySet()){
                 if (key.toString().equals(name)) {
@@ -79,8 +80,8 @@ public class WebSocket {
         for (Map<String,WebSocket> item : webSocketSet) {
             for(String key : item.keySet()){
                 if(item.get(key) == this){
+                    // 删除关闭的连接
                     webSocketSet.remove(item);
-                    //从set中删除
                     subOnlineCount();           //在线数减1
                     System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
                 }
