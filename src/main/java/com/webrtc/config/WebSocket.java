@@ -55,6 +55,7 @@ public class WebSocket {
         addSocket(map, name);
     }
 
+    // 添加map 到 webSocketSet，
     public void addSocket(Map<String,WebSocket> map, String name) {
         for(Map<String,WebSocket> item: webSocketSet){
             for(String key : item.keySet()){

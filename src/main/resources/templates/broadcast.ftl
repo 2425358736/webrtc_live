@@ -90,7 +90,7 @@
             console.log("连接关闭")
         }
 
-        //有浏览器简历视频连接
+        //有浏览器建立视频连接
         socket.onmessage = function (event) {
             var json = JSON.parse(event.data);
             if (json.name && json.name != null && !json.event) {
