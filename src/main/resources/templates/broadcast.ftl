@@ -73,6 +73,11 @@
         // 获取主播名称
         const zhubo = document.getElementById('zhubo').value;
 
+        if (!zhubo) {
+            alert("请输入主播名");
+            return;
+        }
+        localStorage.setItem("anchor", zhubo);
         /**
          * 信令websocket
          * @type {WebSocket}
@@ -131,7 +136,9 @@
                             name: zhubo,
                             receiver: json.name
                         }));
-                    },(error) => {alert(error)});
+                    }, (error) => {
+                        alert(error)
+                    });
                 } else {
                     pc[json.name].createOffer(function (desc) {
                         pc[json.name].setLocalDescription(desc);
@@ -143,7 +150,9 @@
                             name: zhubo,
                             receiver: json.name
                         }));
-                    },(error) => {alert(error)});
+                    }, (error) => {
+                        alert(error)
+                    });
                 }
             } else {
                 if (json.event === "__ice_candidate") {
@@ -157,5 +166,12 @@
         };
     }
 
+    window.onload = function () {
+        const anchor = localStorage.getItem("anchor");
+        if (anchor) {
+            document.getElementById('zhubo').value = anchor;
+            connect();
+        }
+    }
 </script>
 </html>
