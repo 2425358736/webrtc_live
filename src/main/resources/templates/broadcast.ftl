@@ -131,7 +131,7 @@
                             name: zhubo,
                             receiver: json.name
                         }));
-                    });
+                    },(error) => {alert(error)});
                 } else {
                     pc[json.name].createOffer(function (desc) {
                         pc[json.name].setLocalDescription(desc);
@@ -143,7 +143,7 @@
                             name: zhubo,
                             receiver: json.name
                         }));
-                    });
+                    },(error) => {alert(error)});
                 }
             } else {
                 if (json.event === "__ice_candidate") {
