@@ -5,5 +5,5 @@ ENV TZ=Asia/Shanghai
 RUN bash -c 'ouch /app.jar' \
     && lnt -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","app.jar"]
 EXPOSE 6533
