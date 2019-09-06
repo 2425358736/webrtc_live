@@ -82,7 +82,7 @@
          * 信令websocket
          * @type {WebSocket}
          */
-        socket = new WebSocket("ws://192.168.31.13:6533/websocket?name=" + zhubo);
+        socket = new WebSocket("ws://123.206.19.217:6533/websocket?name=" + zhubo);
 
         //获取本地的媒体流，并绑定到一个video标签上输出，并且发送这个媒体流给其他客户端
         getUserMedia.call(navigator, {
