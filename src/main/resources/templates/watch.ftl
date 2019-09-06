@@ -69,7 +69,7 @@
          * 信令websocket
          * @type {WebSocket}
          */
-        socket = new WebSocket("ws://192.168.31.13:6533/websocket?name=" + userName + "&receiver=" + receiver);
+        socket = new WebSocket("ws://123.206.19.217:6533/websocket?name=" + userName + "&receiver=" + receiver);
 
 
         socket.close = function () {
