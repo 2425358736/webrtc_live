@@ -64,22 +64,19 @@
                             <goal>build</goal>
                         </goals>
                         <configuration>
-                            <imageName>${project.artifactId}</imageName>
+                            <imageName>${project.artifactId}:${project.version}</imageName>
                         </configuration>
                     </execution>
 
                 </executions>
                 <configuration>
                     <forceTags>true</forceTags>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
+                            <directory>${project.basedir}/target</directory>
+                            <include>${project.artifactId}-${project.version}.jar</include>
                         </resource>
                     </resources>
                 </configuration>
