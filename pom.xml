@@ -63,9 +63,6 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
-                        <configuration>
-                            <imageName>${project.artifactId}:${project.version}</imageName>
-                        </configuration>
                     </execution>
 
                 </executions>
